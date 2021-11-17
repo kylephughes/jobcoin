@@ -1,0 +1,33 @@
+.jobcoinStatus {
+  padding: 32px;
+}
+
+.jobcoinTransfer {
+  padding-top: 16px;
+}
+
+/* Allow for the transactions to scroll and keep proper ratio on smaller screens */
+@media only screen and (max-width: 900px) {
+  .jobcoin-transaction {
+    padding-bottom: 16px;
+    overflow-x: scroll;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .jobcoin-transaction .jobcoin-transaction-wrapper {
+    width: 1200px;
+  }
+}
+.jobcoin-transaction-wrapper {
+  padding-right: 16px;
+}
+.jobcoin-transaction .jobcoin-transaction-wrapper {
+  height: 100%;
+}
+
+/* .jobcoin-transaction > canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+} */
