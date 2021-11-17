@@ -11,36 +11,21 @@ import {
   Typography,
 } from '@mui/material'
 import {
-  DispatchType,
   JobcoinTransferProps,
   TransferFormAction,
   TransferFormState,
   TransferPayload,
 } from 'components/JobcoinTransfer/types'
-import React, { ChangeEvent, useReducer, useState } from 'react'
+import React, { useReducer, useState } from 'react'
+import { isFormValid, validateAmount } from './utils'
 import { useMutation, useQueryClient } from 'react-query'
 
-import { isFormValid } from './utils'
 import { transferCoin } from 'api/jobcoin'
 import { useParams } from 'react-router-dom'
 
 const IntialTransferFormState = {
   destinationAddress: { value: '', isValid: false, error: 'Address is required' },
   amount: { value: '', isValid: false, error: 'Amount is required' },
-}
-
-// simple validation that mimics service for better User experience
-const validateAmount = (amount: string, balance: string): string => {
-  const amt = Number(amount)
-  const bal = Number(balance)
-  if (amt) {
-    if (amt > bal) {
-      return 'Insufficient funds'
-    }
-  } else {
-    return 'Amount must be a real number'
-  }
-  return ''
 }
 
 // control form state transitions & validation of fields
@@ -80,7 +65,7 @@ const JobcoinTransfer = (props: JobcoinTransferProps) => {
   const queryClient = useQueryClient()
   const mutation = useMutation((transfer: TransferPayload) => transferCoin(transfer), {
     onSuccess: () => {
-      // forces refreshing the query in the cache to get the latest data
+      // forces refreshing the query in the cache to get the latest data for other consumers
       queryClient.invalidateQueries(['jobcoin', address])
       dispatch({ type: 'CLEAR_FORM' })
     },
@@ -100,6 +85,7 @@ const JobcoinTransfer = (props: JobcoinTransferProps) => {
       })
     }
   }
+  const isFieldDisabled = Number(balance) === 0
   return (
     <Card>
       <CardContent>
@@ -111,6 +97,7 @@ const JobcoinTransfer = (props: JobcoinTransferProps) => {
         <Grid container>
           <Grid item xs={12} className="form-field">
             <TextField
+              disabled={isFieldDisabled}
               required
               fullWidth
               error={submitting && !transferForm.destinationAddress.isValid}
@@ -123,6 +110,7 @@ const JobcoinTransfer = (props: JobcoinTransferProps) => {
           </Grid>
           <Grid item xs={12} className="form-field">
             <TextField
+              disabled={isFieldDisabled}
               required
               error={submitting && !transferForm.amount.isValid}
               fullWidth
@@ -145,7 +133,7 @@ const JobcoinTransfer = (props: JobcoinTransferProps) => {
       </CardContent>
       <CardActions>
         <Grid container justifyContent="center">
-          <Button onClick={handleFormSubmit} size="small">
+          <Button disabled={isFieldDisabled} onClick={handleFormSubmit} size="small">
             Send Jobcoins
           </Button>
         </Grid>

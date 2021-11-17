@@ -11,10 +11,10 @@ const JobcoinBalance: React.FC<JobcoinBalanceProps> = props => {
   return (
     <Card>
       <CardContent>
-        <Typography align="center" color="text.secondary" gutterBottom>
+        <Typography align="center" color="text.secondary">
           Jobcoin Balance
         </Typography>
-        <Typography variant="h5" component="div">
+        <Typography align="center" variant="h6" component="div">
           {balance}
         </Typography>
       </CardContent>

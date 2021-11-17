@@ -1,6 +1,4 @@
-import './App.css'
-
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { JobcoinContainer, JobcoinLoginContainer } from 'containers'
 
 import React from 'react'
@@ -11,7 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<JobcoinLoginContainer />} />
         <Route path="jobcoin/:address" element={<JobcoinContainer />} />
-        <Route path="*" element={<JobcoinLoginContainer />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
   )

@@ -15,16 +15,14 @@ const JobcoinAppBar = () => {
       <AppBar color="transparent" position="relative">
         <Toolbar>
           <Grid container>
-            <Typography variant="h6" component="div">
-              {`Welcome! ${address}`}
-            </Typography>
+            <Typography component="div">{`Welcome! ${address}`}</Typography>
           </Grid>
           <Grid container justifyContent="flex-end">
             {isValidated ? <AuthedUser /> : <Link to="/">Sign in</Link>}
           </Grid>
         </Toolbar>
       </AppBar>
-      {isFetching ? <LinearProgress /> : <LinearProgress />}
+      <Grid container>{isFetching ? <LinearProgress /> : <LinearProgress />}</Grid>
     </>
   )
 }

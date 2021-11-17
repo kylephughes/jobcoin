@@ -8,7 +8,7 @@ import { useAuth } from 'hooks/useAuth'
 
 type AuthedUserProps = {}
 export const AuthedUser = (props: AuthedUserProps) => {
-  const { address, signout } = useAuth()
+  const { signout } = useAuth()
   const [menuAnchor, setMenuAnchor] = useState(null)
 
   const handleClick = (event: any) => {
@@ -28,7 +28,6 @@ export const AuthedUser = (props: AuthedUserProps) => {
         <AccountCircle />
       </IconButton>
       <Menu className="account-menu" anchorEl={menuAnchor} open={openMenu} onClose={handleClose}>
-        <Typography align="center">{`Welcome! ${address}`}</Typography>
         <MenuItem onClick={handleSignout}>Sign out</MenuItem>
       </Menu>
     </>
