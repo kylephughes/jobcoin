@@ -8,14 +8,13 @@ export const useWidthObserver = (ref: RefObject<HTMLDivElement> | null) => {
     let timeoutId: any = null
     const handleWindowResize = () => {
       clearTimeout(timeoutId)
-      console.log('window resize')
       timeoutId = setTimeout(() => {
         setWidth(ref?.current?.offsetWidth ?? window.innerWidth)
       }, 300)
     }
     window.addEventListener('resize', handleWindowResize)
     return () => window.removeEventListener('resize', handleWindowResize)
-  }, [])
+  }, [ref])
 
   return { width, setWidth }
 }
