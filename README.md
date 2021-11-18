@@ -17,6 +17,8 @@ Chrome - 94.0.4606.71
 3. Run `yarn start` and navigate to `localhost:3000` once running
 4. Run `yarn test` to execute RTL test suite
 
+Addresses with many transactions: `Kyle-Addr & Test-1`
+
 ## Features
 
 - Only one address can be logged in per browser at a time but multiple tabs can be open and they will stay in sync by refetching on window focus
