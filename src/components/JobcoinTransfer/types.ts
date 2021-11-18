@@ -4,7 +4,6 @@ export type TransferPayload = {
   amount: string
 }
 
-export type DispatchType = 'SET_DESTINATION_ADDRESS' | 'SET_AMOUNT' | 'CLEAR_FORM'
 export type TransferFormAction =
   | {
       type: 'SET_DESTINATION_ADDRESS'

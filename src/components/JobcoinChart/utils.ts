@@ -19,7 +19,7 @@ export const getHydratedTransactions = (
   return hydratedTransactions
 }
 
-// using arbitrary numbers here based off material default screen sizes
+// using random numbers here based off material default screen sizes
 // to prevent unreadable x-axis in larger data sets
 export const getTickCount = (width: number) => {
   if (width > 1920) {
@@ -35,6 +35,7 @@ export const getTickCount = (width: number) => {
   }
 }
 
+// chart data supported by react-chartjs-2
 export const getChartData = (
   hydratedTransactions: Array<HydratedTransaction>,
   tickCount: number,

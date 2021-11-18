@@ -1,4 +1,4 @@
-import JobcoinContainer from 'containers/JobcoinContainer/JobcoinContainer'
-import JobcoinLoginContainer from 'containers/JobcoinLoginContainer/JobcoinLoginContainer'
+import JobcoinContainer from 'containers/JobcoinContainer'
+import JobcoinLoginContainer from 'containers/JobcoinLoginContainer'
 
 export { JobcoinContainer, JobcoinLoginContainer }

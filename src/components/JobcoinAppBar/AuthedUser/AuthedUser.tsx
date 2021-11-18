@@ -1,13 +1,12 @@
 import 'components/JobcoinAppBar/AuthedUser/authedUser.css'
 
-import { IconButton, Menu, MenuItem, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import { IconButton, Menu, MenuItem } from '@mui/material'
 
 import AccountCircle from '@mui/icons-material/AccountCircle'
 import { useAuth } from 'hooks/useAuth'
+import { useState } from 'react'
 
-type AuthedUserProps = {}
-export const AuthedUser = (props: AuthedUserProps) => {
+const AuthedUser = () => {
   const { signout } = useAuth()
   const [menuAnchor, setMenuAnchor] = useState(null)
 
@@ -33,3 +32,4 @@ export const AuthedUser = (props: AuthedUserProps) => {
     </>
   )
 }
+export default AuthedUser

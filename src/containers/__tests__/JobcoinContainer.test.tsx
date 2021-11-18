@@ -2,7 +2,6 @@ import { RequestHandler, rest } from 'msw'
 import { fireEvent, screen, waitFor } from '@testing-library/react'
 
 import JobcoinContainer from 'containers/JobcoinContainer'
-import React from 'react'
 import { renderWithProvider } from 'tests/utils'
 import { setupServer } from 'msw/node'
 

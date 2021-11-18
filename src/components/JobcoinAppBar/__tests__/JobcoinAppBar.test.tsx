@@ -2,7 +2,6 @@ import { RequestHandler, rest } from 'msw'
 import { fireEvent, screen } from '@testing-library/react'
 
 import JobcoinAppBar from '../JobcoinAppBar'
-import React from 'react'
 import { renderWithProvider } from 'tests/utils'
 import { setupServer } from 'msw/node'
 
@@ -40,8 +39,14 @@ describe('JobcoinAppBar', () => {
   it('Render the app bar welcoming the validated user', async () => {
     renderWithProvider(<JobcoinAppBar />, [`/jobcoin/${address}`])
 
-    // wait for the api call to resolve, this is the balance
     await screen.findByText('Welcome! Kyle-Addr')
+  })
+
+  it('Render the app bar with an unauthorized user', async () => {
+    renderWithProvider(<JobcoinAppBar />, [`/jobcoin/${address2}`])
+
+    await screen.findByText('Welcome! Test')
+    screen.getByText('Read only mode, please sign in')
   })
 
   it('Render the user icon for a validated user and show the signout button to route back to sign in page', async () => {

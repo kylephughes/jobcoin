@@ -16,9 +16,9 @@ import {
   TransferFormState,
   TransferPayload,
 } from 'components/JobcoinTransfer/types'
-import React, { useReducer, useState } from 'react'
 import { isFormValid, validateAmount } from './utils'
 import { useMutation, useQueryClient } from 'react-query'
+import { useReducer, useState } from 'react'
 
 import { transferCoin } from 'api/jobcoin'
 import { useParams } from 'react-router-dom'
@@ -65,7 +65,7 @@ const JobcoinTransfer = (props: JobcoinTransferProps) => {
   const queryClient = useQueryClient()
   const mutation = useMutation((transfer: TransferPayload) => transferCoin(transfer), {
     onSuccess: () => {
-      // forces refreshing the query in the cache to get the latest data for other consumers
+      // forces refreshing the query in the cache to get the latest data for display
       queryClient.invalidateQueries(['jobcoin', address])
       dispatch({ type: 'CLEAR_FORM' })
     },

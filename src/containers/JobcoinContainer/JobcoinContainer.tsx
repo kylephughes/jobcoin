@@ -1,7 +1,5 @@
 import 'containers/JobcoinContainer/jobcoinContainer.css'
 
-import React, { useRef } from 'react'
-
 import { Grid } from '@mui/material'
 import JobcoinAppBar from 'components/JobcoinAppBar'
 import JobcoinBalance from 'components/JobcoinBalance'
@@ -10,6 +8,7 @@ import JobcoinTransfer from 'components/JobcoinTransfer'
 import { fetchAddress } from 'api/jobcoin'
 import { useAuth } from 'hooks/useAuth'
 import { useQuery } from 'react-query'
+import { useRef } from 'react'
 
 // show balance for user not logged in ?
 const JobcoinContainer = () => {
@@ -29,7 +28,7 @@ const JobcoinContainer = () => {
           <>
             <Grid
               container
-              className="jobcoinStatus"
+              className="jobcoin-widget-container"
               direction="column"
               item
               xs={12}
@@ -39,7 +38,7 @@ const JobcoinContainer = () => {
               <Grid item>
                 <JobcoinBalance balance={balance} />
               </Grid>
-              <Grid item className="jobcoinTransfer">
+              <Grid item className="jobcoin-transfer">
                 {isValidated && <JobcoinTransfer balance={balance} />}
               </Grid>
             </Grid>
