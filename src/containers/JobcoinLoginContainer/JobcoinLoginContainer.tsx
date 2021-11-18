@@ -11,7 +11,7 @@ import {
   TextField,
   Typography,
 } from '@mui/material'
-import React, { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 
 import { useAuth } from 'hooks/useAuth'
 
@@ -31,6 +31,7 @@ const JobcoinLoginContainer = () => {
       setIsError(true)
     }
   }
+
   return (
     <Grid container className="login-container" item justifyContent="center" alignContent="center">
       <Grid item>

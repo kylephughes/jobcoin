@@ -125,7 +125,7 @@ const JobcoinTransfer = (props: JobcoinTransferProps) => {
             <Grid item xs={12} className="form-field">
               <Typography>
                 Something went wrong sending the transfer:
-                {(mutation as any)?.error.response.data.error}
+                {(mutation as any)?.error?.response?.data?.error}
               </Typography>
             </Grid>
           )}

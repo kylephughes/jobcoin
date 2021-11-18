@@ -6,8 +6,9 @@ import App from './App'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import reportWebVitals from './reportWebVitals'
-const queryClient = new QueryClient()
 
+// prefetching/caching out of the box
+const queryClient = new QueryClient()
 ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>

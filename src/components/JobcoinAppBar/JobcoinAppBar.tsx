@@ -1,15 +1,13 @@
-import { AppBar, Grid, LinearProgress, Toolbar, Typography } from '@mui/material'
+import { AppBar, Grid, Toolbar, Typography } from '@mui/material'
 
 import { AuthedUser } from './AuthedUser/AuthedUser'
 import { Link } from 'react-router-dom'
 import React from 'react'
 import { useAuth } from 'hooks/useAuth'
-import { useIsFetching } from 'react-query'
 
 const JobcoinAppBar = () => {
   const { address, isValidated } = useAuth()
-  const isFetching = useIsFetching()
-  console.log(isFetching)
+
   return (
     <>
       <AppBar color="transparent" position="relative">
@@ -18,11 +16,10 @@ const JobcoinAppBar = () => {
             <Typography component="div">{`Welcome! ${address}`}</Typography>
           </Grid>
           <Grid container justifyContent="flex-end">
-            {isValidated ? <AuthedUser /> : <Link to="/">Sign in</Link>}
+            {isValidated ? <AuthedUser /> : <Link to="/">Read only mode, please sign in</Link>}
           </Grid>
         </Toolbar>
       </AppBar>
-      <Grid container>{isFetching ? <LinearProgress /> : <LinearProgress />}</Grid>
     </>
   )
 }
