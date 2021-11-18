@@ -1,5 +1,7 @@
 # Jobcoin
 
+Built with React, Typescript, React-Query, Material and React-ChartJs-2
+
 ## Dependencies
 
 Verified with the following
@@ -10,8 +12,10 @@ Chrome - 94.0.4606.71
 
 ## Run instructions
 
-1. Navigate to project root and run `yarn` to download necessary dependencies
-2. Run `yarn start` and navigate to `localhost:3000` once running
+1. Install yarn if not already downloaded on machine
+2. Navigate to project root and run `yarn` to download necessary dependencies
+3. Run `yarn start` and navigate to `localhost:3000` once running
+4. Run `yarn test` to execute RTL test suite
 
 ## Features
 
