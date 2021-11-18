@@ -74,6 +74,7 @@ const JobcoinTransfer = (props: JobcoinTransferProps) => {
 
   const [transferForm, dispatch] = useReducer(transferFormReducer, { ...IntialTransferFormState })
   const [submitting, setSubmitting] = useState(false)
+
   const handleFormSubmit = () => {
     setSubmitting(true)
     if (isFormValid(transferForm)) {

@@ -6,7 +6,8 @@ import { useState } from 'react'
 
 // Uses local storage to track who is "logged in" since there is no sensitive data here
 // Simply mimicking integrating with a auth service but this ideally is some sort of jwt token,
-// and is managed somewhere other than this hook,
+// and is managed somewhere other than this hook
+
 export const useAuth = () => {
   const navigate = useNavigate()
   const queryClient = useQueryClient()

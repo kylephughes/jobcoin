@@ -1,46 +1,27 @@
-# Getting Started with Create React App
+# Jobcoin
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Dependencies
 
-## Available Scripts
+Verified with the following
 
-In the project directory, you can run:
+Node - 16.8.0
+Yarn - 1.22.10
+Chrome - 94.0.4606.71
 
-### `yarn start`
+## Run instructions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Navigate to project root and run `yarn` to download necessary dependencies
+2. Run `yarn start` and navigate to `localhost:3000` once running
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `yarn test`
+- Only one address can be logged in per browser at a time but multiple tabs can be open and they will stay in sync by refetching on window focus
+- Navigating directly to an address' route (http://localhost:3000/jobcoin/Kyle-Addr) before logging in will still display balances but will put you in a "read only" mode.
+- Chart is contained in a resizable box and will adjust as the window size is adjusted for mobile support. A scroll will be added to the chart if it is expanded past the window
+- Address' with a `$0` balance will have the transfer widget disabled
+- Graph will not display if there is not anything to show
+- Transfer widget has validations in an attempt to mimic server validations for a better experience
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Assumptions
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Since any address can login and there is no sensitive data, address is stored in localstorage for simplicity.
